@@ -1,0 +1,80 @@
+<div fxFlex fxLayout="column" fxLayoutGap="0px">
+    <div fxLayout="row wrap">
+        <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column">
+            <div fxLayoutAlign="center">
+                <img style="margin-top:100px"
+                    src="https://media.istockphoto.com/vectors/group-of-six-happy-friends-holding-big-banner-vith-join-us-title-vector-id1171808258?k=20&m=1171808258&s=612x612&w=0&h=LtKnIUTK9lavwQDayqIP9HVKoUPCkVfjvXmQKrbZ2Dg=" />
+            </div>
+
+        </div>
+
+        <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column" class="mat-app-background">
+            <mat-card class="box">
+                <div fxLayout="column" fxLayoutAlign="center" style="margin-top:50px">
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <h1>Please sign up in below</h1>
+                    </div>
+
+                </div>
+                <div fxLayout="column" fxLayoutAlign="c" style="margin-top:30px">
+
+
+                    <form [formGroup]="registerForm" class="example-form" (ngSubmit)="onSubmit()">
+
+
+                        <mat-form-field style="width:400px!important ">
+                            <input matInput placeholder="nom" type="text" formControlName="nom" name="nom"
+                                appearance="fill" required>
+
+                            <mat-error
+                                *ngIf="registerForm.get('nom').invalid && (registerForm.get('nom').dirty || registerForm.get('nom').touched)">
+                                <mat-error *ngIf="registerForm.get('nom').errors?.['required']">tapez votre nom
+                                </mat-error>
+                            </mat-error>
+
+
+                        </mat-form-field>
+
+                        <mat-form-field style="width:400px!important ">
+                            <input matInput placeholder="prenom" type="text" formControlName="prenom" name="prenom">
+                            <mat-error
+                                *ngIf="registerForm.get('prenom').invalid && (registerForm.get('prenom').dirty || registerForm.get('prenom').touched)">
+                                <mat-error *ngIf="registerForm.get('prenom').errors?.['required']">tapez votre prenom
+                                </mat-error>
+                            </mat-error>
+
+                        </mat-form-field>
+
+                        <mat-form-field style="width:400px!important ">
+                            <input matInput placeholder="email" type="text" formControlName="email" name="email">
+
+                            <mat-error
+                                *ngIf="registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                                <mat-error *ngIf="registerForm.get('email').errors?.['required']">email obligatoire
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('email').errors?.['email']">invalid adresse Email
+                                </mat-error>
+                            </mat-error>
+
+                        </mat-form-field>
+                        <mat-form-field style="width:400px!important ">
+                            <input matInput placeholder="password" type="password" formControlName="password"
+                                name="password">
+                            <mat-error
+                                *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                                <mat-error *ngIf="registerForm.get('password').errors?.['required']">password
+                                    obligatoire</mat-error>
+                                <mat-error *ngIf="registerForm.get('password').errors?.['minlength']">
+                                    Le mot de passe doit être au moins de 6 caractères</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                        <div fxLayoutAlign="center">
+                            <button type="submit" mat-raised-button>register</button>
+                        </div>
+
+                    </form>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

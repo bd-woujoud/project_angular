@@ -1,0 +1,43 @@
+<table>
+    <!-- table header items -->
+    <ng-container>
+        <tr *ngIf="router.url === '/societes'">
+            <th *ngFor="let hed of HeaderSociete">{{hed}}</th>
+        </tr> <!-- <th *ngFor="let hed of tableHeader">{{hed}}</th> -->
+        <tr *ngIf="router.url === '/users'">
+            <th *ngFor="let hed of tableHeader">{{hed}}</th>
+        </tr>
+    </ng-container>
+
+    <!-- table data  -->
+    <ng-container *ngIf="router.url === '/societes'">
+        <tr *ngFor="let item of listDataSociete">
+            <ng-container *ngFor="let col of ColumnSociete">
+                <td>{{item[col]}}</td>
+            </ng-container>
+
+            <td>
+                <mat-icon mat-raised-button class="icon" style="color: red;margin-right: 10px"
+                    (click)="action('delete',item.id)">delete</mat-icon>
+                <mat-icon class="icon" style="color: blue" (click)="action('update',item.id)">update</mat-icon>
+            </td>
+
+        </tr>
+
+    </ng-container>
+    <ng-container *ngIf="router.url === '/users'">
+        <tr *ngFor="let item of listData">
+            <ng-container *ngFor="let col of tableColumn">
+                <td>{{item[col]}}</td>
+            </ng-container>
+            <td>
+                <mat-icon mat-raised-button class="icon" style="color: red;margin-right: 10px"
+                    (click)="action('delete',item.id)">delete</mat-icon>
+                <mat-icon class="icon" style="color: blue"  (click)="action('update',item.id)"><span (click)="openDialog()">update</span></mat-icon>
+            </td>
+        </tr>
+    </ng-container>
+
+
+
+</table>

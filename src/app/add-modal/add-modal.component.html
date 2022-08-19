@@ -1,0 +1,91 @@
+<div mat-dialog-content>
+  <!-- <form [formGroup]="addUserForm" class="example-form" (ngSubmit)="onSubmit()" >
+
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="nom" type="text"  formControlName="nom" name="nom">
+   
+         <mat-error  *ngIf="addUserForm.get('nom').invalid && (addUserForm.get('nom').dirty || addUserForm.get('nom').touched)">
+                            <mat-error  *ngIf="addUserForm.get('nom').errors?.['required']" >champ obligatoire</mat-error>
+                        </mat-error>
+ </mat-form-field>
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="prenom" type="text"  formControlName="prenom" name="prenom" required>
+   
+         <mat-error  *ngIf="addUserForm.get('prenom').invalid && (addUserForm.get('prenom').dirty || addUserForm.get('prenom').touched)">
+                            <mat-error  *ngIf="addUserForm.get('prenom').errors?.['required']" >champ obligatoire</mat-error>
+                        </mat-error>
+ </mat-form-field>
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="adresse" type="text"  formControlName="adresse" name="adresse" >
+   
+         <mat-error  *ngIf="addUserForm.get('adresse').invalid && (addUserForm.get('adresse').dirty || addUserForm.get('adresse').touched)">
+                            <mat-error  *ngIf="addUserForm.get('adresse').errors?.['required']" >champ obligatoire</mat-error>
+                        </mat-error>
+ </mat-form-field>
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="phoneNumber" type ="text"  formControlName="phoneNumber" name="phoneNumber" >
+
+         <mat-error  *ngIf="addUserForm.get('phoneNumber').invalid && (addUserForm.get('phoneNumber').dirty || addUserForm.get('phoneNumber').touched)">
+                            <mat-error  *ngIf="addUserForm.get('phoneNumber').errors?.['required']" >champ obligatoire</mat-error>
+                            <mat-error  *ngIf="addUserForm.get('phoneNumber').errors?.['pattern']" >le numéro de télephone doit avoir 8 chiffres.</mat-error>
+         </mat-error>
+
+ </mat-form-field>
+  
+
+
+
+  </form> -->
+  <form [formGroup]="addUserForm" class="example-form" (ngSubmit)="onSubmit()">
+
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="nom" type="text" formControlName="nom" name="nom" appearance="fill" required>
+
+      <mat-error
+        *ngIf="addUserForm.get('nom').invalid && (addUserForm.get('nom').dirty || addUserForm.get('nom').touched)">
+        <mat-error *ngIf="addUserForm.get('nom').errors?.['required']">champ obligatoire</mat-error>
+      </mat-error>
+
+
+    </mat-form-field>
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="prenom" type="text" formControlName="prenom" name="prenom">
+      <mat-error
+        *ngIf="addUserForm.get('prenom').invalid && (addUserForm.get('prenom').dirty || addUserForm.get('prenom').touched)">
+        <mat-error *ngIf="addUserForm.get('prenom').errors?.['required']">champ obligatoire</mat-error>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="adresse" type="text" formControlName="adresse" name="adresse">
+      <mat-error
+        *ngIf="addUserForm.get('adresse').invalid && (addUserForm.get('adresse').dirty || addUserForm.get('adresse').touched)">
+        <mat-error *ngIf="addUserForm.get('adresse').errors?.['required']">champ obligatoire</mat-error>
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field style="width:400px!important ">
+      <input matInput placeholder="phoneNumber" type="tel" formControlName="phoneNumber" name="phoneNumber">
+      <mat-error
+        *ngIf="addUserForm.get('phoneNumber').invalid && (addUserForm.get('phoneNumber').dirty || addUserForm.get('phoneNumber').touched)">
+        <mat-error *ngIf="addUserForm.get('phoneNumber').errors?.['required']">champ obligatoire</mat-error>
+        <mat-error *ngIf="addUserForm.get('phoneNumber').errors?.['pattern']">le numéro de télephone doit avoir 8
+          chiffres.</mat-error>
+      </mat-error>
+    </mat-form-field>
+    <div fxLayoutAlign="center"><button mat-raised-button type="submit" color="primary">Save</button>
+      <button style="margin-left: 10px" mat-raised-button class="close" (click)="onNoClick()"
+        color="warn">Cancel</button>
+    </div>
+
+
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<div>
+    <br>
+    <div class="container ">
+        <div class="container" style="margin-top: 100px">
+            <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center"
+                class="content">
+                <div class="blocks">
+                    <!-- (click)="openDialog()" -->
+                    <button button="submit" mat-raised-button  (click)="openDialog()" color="primary" >
+                        <mat-icon >add</mat-icon> Add societe
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div fxLayout="row" fxLayoutAlign="center center" class="content">
+                <mat-card class="card">
+                    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+                        <h3>All Societe</h3>
+                    </mat-card-title>
+                    <mat-card-content>
+                        <div class="example-container mat-elevation-z8">
+
+
+                            <app-list-shared-table [HeaderSociete]="tableHeaderSociete" 
+                            [ColumnSociete]='tableColumnSociete' [listDataSociete] ="listSociete" 
+                            (actionOutput)="getActionOutput($event)"></app-list-shared-table>
+
+
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

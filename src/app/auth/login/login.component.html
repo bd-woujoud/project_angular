@@ -1,0 +1,29 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="formLogin" class="example-form" (ngSubmit)="onSubmit()">
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="email" formControlName="email">
+          <mat-error *ngIf="formLogin.get('email').invalid && (formLogin.get('email').dirty || formLogin.get('email').touched)">
+            <mat-error *ngIf="formLogin.get('email').errors?.['required']">tapez votre email</mat-error>
+            <mat-error *ngIf="formLogin.get('email').errors?.['email']"> invalid adresse Email </mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="formLogin.get('password').invalid && (formLogin.get('password').dirty || formLogin.get('password').touched)">
+            <mat-error *ngIf="formLogin.get('password').errors?.['required']">password obligatoire</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+
+      </mat-card-content>
+      <button type="submit" mat-raised-button>Log in</button>
+    </form>
+  </mat-card>
+</div>
